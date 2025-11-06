@@ -1,6 +1,16 @@
 # DSI_ML6
 Data Science Institute ML6 repo
 
+# Shortlisted datasets
+- E-Commerce Sales Dataset
+- Online Retail II
+
+# Questions to review:
+
+- Understand the value you will be delivering - who are your stakeholders and why do tehy care about your project?
+
+- What are the limitations of the dataset? Will you be able to answer your research questions with this dataset?
+
 # First review w/ Aditya K
 
 Example questions of datasets: Collection of datasets. We give this to every cohort. 
