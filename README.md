@@ -33,7 +33,7 @@ Data Science Institute ML6 repo
 - Evaluated not on the code or model but identifying the problem, finding a solution and communicating usable results
 - Focus on ONE end-to-end
 - Product recommender is a good idea! Take a day to investigate further and see how it can be built out
-
+- Stick to one branch per feature. Updating readme.md can be done by one person but when you divide work, you can create respective branches for those features/tasks
 
 # First review w/ Aditya K
 
