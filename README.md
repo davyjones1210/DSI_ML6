@@ -16,6 +16,16 @@ Data Science Institute ML6 repo
 - Season changes in sales/quarterly impact: demostrate regression, classification and clustering along category of products against the sales
 - Define a larger problem related to revenue and within that identify a few sub problems
 
+# Ideas 2 - 11/6/2025
+
+- Mulitple statistical models; one problem to solve with
+- Product Recommender model - not part of course content
+    - collaborative (new approach), content based (IMDB example), Hybrid (mix of both)
+    - anything where there is upselling or cross-selling - a recommender model is used
+    - Idea: Simple recommender model
+- Business question: Current recommender needs to be replaced; do some visualizations. Ex: 30% of orders are from just 1-2 products. Need to increase order count for other products.
+
+
 # First review w/ Aditya K
 
 Example questions of datasets: Collection of datasets. We give this to every cohort. 
