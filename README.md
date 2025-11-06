@@ -7,9 +7,14 @@ Data Science Institute ML6 repo
 
 # Questions to review:
 
-- Understand the value you will be delivering - who are your stakeholders and why do tehy care about your project?
+- Understand the value you will be delivering - who are your stakeholders and why do they care about your project?
 
 - What are the limitations of the dataset? Will you be able to answer your research questions with this dataset?
+
+# Ideas
+
+- Build a recommender model
+- Define a larger problem related to revenue and within that identify a few sub problems
 
 # First review w/ Aditya K
 
