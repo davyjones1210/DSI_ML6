@@ -35,6 +35,15 @@ Data Science Institute ML6 repo
 - Product recommender is a good idea! Take a day to investigate further and see how it can be built out
 - Stick to one branch per feature. Updating readme.md can be done by one person but when you divide work, you can create respective branches for those features/tasks
 
+# Workload dist - 11/6
+
+- Building the model - Rahul
+- Define user story of why we are building this database. Conclusively build 2-3 simple visualizations. Like bar charts against 2 tables. Data cleaning. Showcase what the buisness problem is. We currently have unique orders in the data set and we want to see how many items (qty) has been ordered. After we track which items have been purchased more than 25 times and make a category out of that. - Venkusa
+- Data cleaning - create a new dataset where we can drop all the blank values - Venkusa
+- SQL & Python data modeling - Volodomyr
+- Recap - meet again Friday, 11/7 7PM EST
+
+
 # First review w/ Aditya K
 
 Example questions of datasets: Collection of datasets. We give this to every cohort. 
