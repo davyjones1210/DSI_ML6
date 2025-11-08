@@ -44,6 +44,18 @@ Data Science Institute ML6 repo
 - Recap - meet again Friday, 11/7 7PM EST
 
 
+Notes - 11/7
+Rahul, Venkusa, Kunal present.
+
+- For every item added to order, there will be a quantifyable increase in revenue - purpose of recommender model. Start with an average.
+Done today:
+- Data cleaning, items ordered plotted but still need to do revenue per invoice as part of EDA
+- 
+To do list for tomorrow
+- EDA (explotatory data analysis)
+- Data wrangling - process of transferring raw/messy data into usable data. Includes, cleaning and structuring of data so its ready for analysis
+- 
+
 # First review w/ Aditya K
 
 Example questions of datasets: Collection of datasets. We give this to every cohort. 
