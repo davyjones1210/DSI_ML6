@@ -21,10 +21,12 @@ This is a classic retail transaction dataset (it’s actually from the UCI Onlin
 
 We will use features from the cleaned / processed dataset to identify customers interests based on their online purchase history. We will then model similarity indexes across customer purchases. This will help create a tool (running in background) that the online retail website can use to generate a list of similar (related) products that will display on the webpage so that customers can click-on to add to their online shopping basket.
 
-- Solution: 
+- Solution: We will build a hybrid recommendation engine to deliver personalized product recommendations combining:
+        a. Apriori association rules
+        b. collaborative and content-based filtering
+        c. RFM (Recency, Frequency, Monetary) analysis
 
 - Results & Recommendations: Our goal is to develop a recommender model which results in:
 
-        - a. Reducing the low-basket orders from 32% to 10%
-
-        - b. Improving conversion among serious visitors from 8% to 10% resulting in 25% increase in monthly order volume (177 additional orders)
+        a. Reducing the low-basket orders from 32% to 10%
+        b. Improving conversion among serious visitors from 8% to 10% resulting in 25% increase in monthly order volume (177 additional orders)
