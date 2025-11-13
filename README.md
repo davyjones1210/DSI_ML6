@@ -30,20 +30,21 @@ Country: Country of the customer
 - Analysis: By analyzing customer behavior and purchase patterns, we can deliver personalized product suggestions that encourage additional purchases, increase the average order value, and enhance the overall shopping experience, ultimately driving sustainable revenue growth through effective cross-selling and customer engagement strategies.
 The dataset represents global retail transactions, with the majority of records originating from the United Kingdom. Our analysis focuses on the B2C segment, aiming to recommend complementary products that are frequently purchased together with items in a customer’s cart. This strategy is designed to enhance cross-selling opportunities and drive overall revenue growth.
 
-The dataset contains approximately 1,033,036 transaction records. During the review, several data quality issues were identified that require cleaning and preprocessing:
-Missing Customer IDs: Some transactions lack Customer ID information, making it difficult to link purchases to specific customers.
-Negative Quantities: Certain records include negative quantities, which typically represent order cancellations or returns.
-Cancelled Invoices: Invoices with negative quantities or missing Customer IDs are considered invalid or cancelled and will be excluded from the analysis.
-Suspicious or Incomplete Records: Additional checks will be performed to identify zero or negative prices and other inconsistencies.
-A structured data cleaning plan will be implemented to address these issues before modeling, ensuring that only valid and reliable transactions are used for analysis.
+  The dataset contains approximately 1,033,036 transaction records. During the review, several data quality issues were identified that require cleaning and preprocessing:
+  Missing Customer IDs: Some transactions lack Customer ID information, making it difficult to link purchases to specific customers.
+  Negative Quantities: Certain records include negative quantities, which typically represent order cancellations or returns.
+  Cancelled Invoices: Invoices with negative quantities or missing Customer IDs are considered invalid or cancelled and will be excluded from the analysis.
+  Suspicious or Incomplete Records: Additional checks will be performed to identify zero or negative prices and other inconsistencies.
+  
+  A structured data cleaning plan will be implemented to address these issues before modeling, ensuring that only valid and reliable transactions are used for analysis.
 
-Outliers were detected in the dataset, including invoices with extremely large basket sizes, unusually high quantities, or suspicious transaction patterns. These abnormal orders can heavily skew metrics like average basket size, revenue, and product co-occurrence, so they require additional review and potential filtering.
+  Outliers were detected in the dataset, including invoices with extremely large basket sizes, unusually high quantities, or suspicious transaction patterns. These abnormal orders can heavily skew metrics like average basket size, revenue, and product co-occurrence, so they require additional review and potential filtering.
 
-We will use features from the cleaned / processed dataset to identify customers interests based on their online purchase history. We will then model similarity indexes across customer purchases. This will help create a tool (running in background) that the online retail website can use to generate a list of similar (related) products that will display on the webpage so that customers can click-on to add to their online shopping basket.
+  We will use features from the cleaned / processed dataset to identify customers interests based on their online purchase history. We will then model similarity indexes across customer purchases. This will help create a tool (running in background) that the online retail website can use to generate a list of similar (related) products that will display on the webpage so that customers can click-on to add to their online shopping basket.
 
-The analysis of retail transaction data reveals that smaller baskets form a minority of overall purchases. Approximately 10% of transactions contain only a single item, while 5% include two items, 4% include three items, and another 4% include four items. The majority of transactions — about 75% — consist of five or more items per purchase.
+  The analysis of retail transaction data reveals that smaller baskets form a minority of overall purchases. Approximately 10% of transactions contain only a single item, while 5% include two items, 4% include three items, and another 4% include four items. The majority of transactions — about 75% — consist of five or more items per purchase.
 
-This distribution highlights that while most customers tend to buy multiple products per transaction, there remains a significant opportunity to engage single- or low-item purchasers through personalized product recommendations and cross-selling strategies, encouraging them to expand their baskets and increasing the overall average order value.
+  This distribution highlights that while most customers tend to buy multiple products per transaction, there remains a significant opportunity to engage single- or low-item purchasers through personalized product recommendations and cross-selling strategies, encouraging them to expand their baskets and increasing the overall average order value.
 
 - Solution: We will build a hybrid recommendation engine to deliver personalized product recommendations combining:
 
