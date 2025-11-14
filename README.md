@@ -1,5 +1,5 @@
 # e-commerce_recommender_model
-Data Science Institute Team ML6 repo  
+Data Science Institute Team ML6 repo
 Members:
 - Kunal Dekhane
 - Rahul Nanda
