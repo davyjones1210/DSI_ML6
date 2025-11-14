@@ -33,7 +33,7 @@ Country: Country of the customer
 
 # Project Plan
 
-- Business context: 31% of the orders have only 1 or 2 items, and 80% of the serious website visitors (visited at least 2 pages and with viewing time of over 15 seconds) do not place an order or add item to cart - which is a lost opportunity.
+- Business context: 32% of the orders have only 1 or 2 items, and 80% of the serious website visitors (visited at least 2 pages and with viewing time of over 15 seconds) do not place an order or add item to cart - which is a lost opportunity.
 
 - Opportunity: By analyzing customer behavior and purchase patterns, we can deliver personalized product suggestions that encourage additional purchases, increase the average order value, and enhance the overall shopping experience, ultimately driving sustainable revenue growth through effective cross-selling and customer engagement strategies.
 
