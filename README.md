@@ -14,21 +14,21 @@ The Online_Retail_II.xlsx dataset contains detailed records of retail transactio
 
 Key Features:
 
-Invoice: Unique identifier for each transaction
+- Invoice: Unique identifier for each transaction
 
-StockCode: Product code for each item sold
+- StockCode: Product code for each item sold
 
-Description: Name/description of the product
+- Description: Name/description of the product
 
-Quantity: Number of units purchased per transaction line
+- Quantity: Number of units purchased per transaction line
 
-InvoiceDate: Date and time of the transaction
+- InvoiceDate: Date and time of the transaction
 
-Price: Unit price of the product
+- Price: Unit price of the product
 
-Customer ID: Unique identifier for each customer
+- Customer ID: Unique identifier for each customer
 
-Country: Country of the customer
+- Country: Country of the customer
 
 
 # Project Plan
@@ -77,7 +77,8 @@ We will build a hybrid recommendation engine to deliver personalized product rec
         b. collaborative and content-based filtering
         c. RFM (Recency, Frequency, Monetary) analysis
 
-- Results & Recommendations: Our goal is to develop a recommender model which results in:
+## Results & Recommendations
+Our goal is to develop a recommender model which results in:
 
         a. Reducing the low-basket orders from 32% to 10%
         b. Improving conversion among serious visitors from 8% to 10% resulting in 25% increase in monthly order volume (177 additional orders)
