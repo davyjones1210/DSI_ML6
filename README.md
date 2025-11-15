@@ -41,9 +41,8 @@ By analyzing customer behavior and purchase patterns, we can deliver personalize
 
 ## Analysis
 We will use features from the cleaned / processed dataset to identify customers interests based on their online purchase history. We will then model similarity indexes across customer purchases. This will help create a tool (running in background) that the online retail website can use to generate a list of similar (related) products that will display on the webpage so that customers can click-on to add to their online shopping basket.
-- Opportunity: By analyzing customer behavior and purchase patterns, we can deliver personalized product suggestions that encourage additional purchases, increase the average order value, and enhance the overall shopping experience, ultimately driving sustainable revenue growth through effective cross-selling and customer engagement strategies.
 
-- Analysis: The dataset represents global retail transactions, with the majority of records originating from the United Kingdom. Our analysis focuses on the B2C segment, aiming to recommend complementary products that are frequently purchased together with items in a customer’s cart. This strategy is designed to enhance cross-selling opportunities and drive overall revenue growth.
+The dataset represents global retail transactions, with the majority of records originating from the United Kingdom. Our analysis focuses on the B2C segment, aiming to recommend complementary products that are frequently purchased together with items in a customer’s cart. This strategy is designed to enhance cross-selling opportunities and drive overall revenue growth.
 
   The dataset contains approximately 1,033,036 transaction records. During the review, several data quality issues were identified that require cleaning and preprocessing:
 
