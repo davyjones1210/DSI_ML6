@@ -1,0 +1,185 @@
+# Add this file via GitHub UI: Add file -> Create new file -> paste -> Commit
+name: Reorganize Online_Retail_II
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  reorganize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository (with LFS)
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+          fetch-depth: 0
+
+      - name: Install git-lfs
+        run: |
+          curl -s https://packagecloud.io/install/repositories/github/git-lfs/script.deb.sh | sudo bash
+          sudo apt-get update -y
+          sudo apt-get install -y git-lfs
+          git lfs install
+
+      - name: Configure git user
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Create helper files (.gitattributes, README, script)
+        run: |
+          # .gitattributes to suggest tracking raw data with Git LFS
+          cat > .gitattributes <<'GATTR'
+data/raw/*.csv filter=lfs diff=lfs merge=lfs -text
+data/raw/*.xlsx filter=lfs diff=lfs merge=lfs -text
+GATTR
+
+          # README describing the layout
+          cat > README_Online_Retail_II.md <<'README'
+# Online_Retail_II — repo organization
+
+This folder has been reorganized to a clearer structure:
+
+- data/
+  - raw/        : original datasets (CSV/Excel). Consider using Git LFS for large files.
+  - processed/  : cleaned or derived datasets used by experiments.
+  - sql/        : SQL queries and helper scripts.
+- experiments/  : Jupyter notebooks and experimental workflows.
+- models/       : trained model artifacts (pickles, joblib, ONNX).
+- reports/      : markdown reports, exported Excel sheets, slides.
+- src/          : reusable Python modules and scripts.
+
+How to run this reorganization:
+1. (Optional) Ensure Git LFS is enabled locally for future work:
+   git lfs install
+   git lfs track "data/raw/*.csv" "data/raw/*.xlsx"
+   git add .gitattributes
+   git commit -m "chore: track raw data files with Git LFS"
+
+2. This workflow will create a branch `reorganize/online-retail-ii` with the restructured files and open a Pull Request.
+
+Notes:
+- combined_unique.csv (~88 MB) is placed in data/raw; use Git LFS to avoid bloating history.
+- This action only moves files and adds helper files; it does not modify notebook/data content.
+README
+
+          # restructure script (for reference; workflow does the moves too)
+          cat > restructure_online_retail_ii.sh <<'SCRIPT'
+#!/usr/bin/env bash
+set -euo pipefail
+mkdir -p data/raw data/processed data/sql experiments models reports src
+
+# Move files if they exist (attempt git mv to preserve history)
+for f in \
+  "Online_Retail_II/combined_unique.csv" \
+  "Online_Retail_II/combined_unique.xlsx" \
+  "Online_Retail_II/online_retail_II.xlsx" \
+  "Online_Retail_II/unique_stockcodes_per_invoice.xlsx" \
+  "Online_Retail_II/Invoice_wise_item_count.csv" \
+  "Online_Retail_II/Invoice_wise_items.sql" \
+  "Online_Retail_II/1_apriori_only.ipynb" \
+  "Online_Retail_II/2_collaborative_only.ipynb" \
+  "Online_Retail_II/3_content_only.ipynb" \
+  "Online_Retail_II/4_RFM_only.ipynb" \
+  "Online_Retail_II/5_ensemble_only.ipynb" \
+  "Online_Retail_II/6_final_model_compiled.ipynb" \
+  "Online_Retail_II/final_model_compiled.ipynb" \
+  "Online_Retail_II/ensemble_model_V1.ipynb" \
+  "Online_Retail_II/code_eda.ipynb" \
+  "Online_Retail_II/Daily_Notes.md" \
+  "Online_Retail_II/Website traffic funnel.xlsx" \
+; do
+  if [ -e "$f" ]; then
+    # compute destination
+    case "$f" in
+      *combined_unique.csv|*combined_unique.xlsx|*online_retail_II.xlsx)
+        dest="data/raw/";;
+      *unique_stockcodes_per_invoice.xlsx|*Invoice_wise_item_count.csv)
+        dest="data/processed/";;
+      *Invoice_wise_items.sql)
+        dest="data/sql/";;
+      *.ipynb)
+        dest="experiments/";;
+      *Daily_Notes.md|*"Website traffic funnel.xlsx")
+        dest="reports/";;
+      *)
+        dest="";;
+    esac
+    if [ -n "$dest" ]; then
+      git mv -v "$f" "$dest" || mv -v "$f" "$dest"
+    fi
+  fi
+done
+
+rmdir Online_Retail_II 2>/dev/null || true
+SCRIPT
+          chmod +x restructure_online_retail_ii.sh
+
+      - name: Create directories (safety)
+        run: mkdir -p data/raw data/processed data/sql experiments models reports src
+
+      - name: Attempt to move files preserving history
+        run: |
+          # helper to move if file exists
+          mv_if_exists() {
+            src="$1"
+            dst="$2"
+            if [ -e "$src" ]; then
+              git mv -v "$src" "$dst" || mv -v "$src" "$dst"
+            else
+              echo "Not found: $src"
+            fi
+          }
+
+          mv_if_exists "Online_Retail_II/combined_unique.csv" "data/raw/"
+          mv_if_exists "Online_Retail_II/combined_unique.xlsx" "data/raw/"
+          mv_if_exists "Online_Retail_II/online_retail_II.xlsx" "data/raw/"
+
+          mv_if_exists "Online_Retail_II/unique_stockcodes_per_invoice.xlsx" "data/processed/"
+          mv_if_exists "Online_Retail_II/Invoice_wise_item_count.csv" "data/processed/"
+
+          mv_if_exists "Online_Retail_II/Invoice_wise_items.sql" "data/sql/"
+
+          mv_if_exists "Online_Retail_II/1_apriori_only.ipynb" "experiments/"
+          mv_if_exists "Online_Retail_II/2_collaborative_only.ipynb" "experiments/"
+          mv_if_exists "Online_Retail_II/3_content_only.ipynb" "experiments/"
+          mv_if_exists "Online_Retail_II/4_RFM_only.ipynb" "experiments/"
+          mv_if_exists "Online_Retail_II/5_ensemble_only.ipynb" "experiments/"
+          mv_if_exists "Online_Retail_II/6_final_model_compiled.ipynb" "experiments/"
+          mv_if_exists "Online_Retail_II/final_model_compiled.ipynb" "experiments/"
+          mv_if_exists "Online_Retail_II/ensemble_model_V1.ipynb" "experiments/"
+          mv_if_exists "Online_Retail_II/code_eda.ipynb" "experiments/"
+
+          mv_if_exists "Online_Retail_II/Daily_Notes.md" "reports/"
+          mv_if_exists "Online_Retail_II/Website traffic funnel.xlsx" "reports/"
+
+          rmdir Online_Retail_II 2>/dev/null || true
+
+      - name: Stage changes and commit
+        run: |
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore: reorganize Online_Retail_II into data/, experiments/, reports/, src/, models/"
+          fi
+
+      - name: Create branch and open Pull Request
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: chore: reorganize Online_Retail_II into standardized layout
+          branch: reorganize/online-retail-ii
+          title: chore: reorganize Online_Retail_II into standardized layout
+          body: |
+            This workflow moved files from Online_Retail_II into a clearer project layout:
+            - data/raw, data/processed, data/sql
+            - experiments, models, reports, src
+            - added .gitattributes to suggest Git LFS tracking for data/raw
+            - added restructure script and README_Online_Retail_II.md
+
+            Note: combined_unique.csv is ~88 MB and was moved to data/raw. The workflow created .gitattributes to recommend using Git LFS. If maintainers do not already have Git LFS enabled, please run:
+              git lfs install
+              git lfs track "data/raw/*.csv" "data/raw/*.xlsx"
+
+            The PR was generated by a GitHub Actions workflow and preserves history where git mv was possible.
